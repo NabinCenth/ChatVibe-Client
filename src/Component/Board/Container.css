@@ -1,0 +1,19 @@
+.Container-b{
+    width: 70vw;
+    height: 84vh;
+    border: 2px solid #ffffff;
+    margin-left:15vw;
+    margin-right: 15vw;
+}
+.MsgWindow-b{
+    width: 70vw;
+   flex-grow: auto;
+  height:75% ;
+  border: 2px solid #ff1f1f;
+   
+}
+.Name-1{ 
+    border: 2px solid #1f66ff;
+    width: 70vw;
+    height: 10%;
+}
