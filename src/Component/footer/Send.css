@@ -1,0 +1,22 @@
+.send-b{
+    display: flex;
+    border: 2px solid #1f66ff;
+    width: fit-content;
+
+height: fit-content;
+color: #ffffff;
+ 
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+
+}
+
+
+.send-icon{
+    display: flex;
+}
+send{
+  cursor:pointer;
+}

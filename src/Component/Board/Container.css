@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 .Container-b{
     width: 70vw;
     height: 84vh;
@@ -5,15 +6,173 @@
     margin-left:15vw;
     margin-right: 15vw;
 }
-.MsgWindow-b{
-    width: 70vw;
-   flex-grow: auto;
-  height:75% ;
-  border: 2px solid #ff1f1f;
-   
-}
+
 .Name-1{ 
     border: 2px solid #1f66ff;
     width: 70vw;
     height: 10%;
 }
+.footer{
+    display: flex;
+    height: 13.3%;
+    border: 2px solid #1f66ff;
+
+    justify-content: center;
+    align-items: center;
+    
+}
+.input-b{
+    margin: 0;
+    display: flex;
+    justify-self: flex-end;
+width: 75%;
+    height: 75%;
+    font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+    border: 1px solid #4b4b6b;
+    border-radius: 8px;
+   
+    background: rgba(30, 30, 50, 0.8);
+}
+.input-b:focus { border-color: #ffffff; outline: none; }
+.send{
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:  #1a1a2e;
+  font-weight: 500;
+  font-size: 1.2rem;
+    width: 10%;
+    height: 75%;
+    transition: background 0.5s ease;
+    border-radius: 0px 8px 8px 0px;
+}
+.send:hover { background: #262640; }
+
+.MsgWindow-b{
+    width: 70vw;
+   flex-grow: auto;
+  height:75% ;
+  border: 2px solid #ff1f1f;
+   overflow: scroll;
+   overflow-x: hidden;
+}
+.containerR{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    min-width: 10%;
+    width: fit-content;
+    justify-self:flex-start ;
+     margin-top: 1%;
+    margin-bottom: 1%;
+    overflow-x: hidden;
+    word-break: break-word;
+   overflow: visible;
+
+}
+.containerS{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #1f66ff;
+    height: fit-content;
+    width: fit-content;
+    min-width: 10%;
+    /* width: fit-content; */
+    justify-self:flex-end ;
+    overflow-x: hidden;
+ word-break: break-word;
+ overflow: visible;
+
+   
+}
+
+.ReceiveMsg{ 
+    display: flex;
+    border: 2px solid #1f66ff;
+    max-width:30vw ;
+    min-height: 30%;
+    height: fit-content;
+  
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #d1d5db;
+    background: radial-gradient(circle, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 40, 0.9) 100%);
+    border-radius: 16px 16px 16px 4px;
+  
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
+  animation: slideInLeft 0.3s ease-out;
+  padding: 8px 12px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.ReceiveMsg:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  }
+  @keyframes slideInLeft { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+.Namer{
+    display: flex;
+    /* border: 2px solid #ff931f; */
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 600;
+     font-size: 14px; 
+     color: #d1d5db;
+      margin-bottom: 4px;
+      margin-left: 8px;
+}
+.Timestampr{
+    display: flex;
+    /* border: 2px solid #a2ff1f; */
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+     font-size: 12px; color:
+      #9ca3af; opacity: 0.7;
+       align-self: flex-end;
+}.SendMsg {
+  display: flex;
+  align-items: center; /* Vertically centers the text */
+  justify-content: flex-start; /* Aligns text to the left (adjust as needed) */
+   max-width: 30vw;
+  width: fit-content;
+  height: fit-content;
+  min-height: 30%; /* Adjusted for better control */
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  background: radial-gradient(circle, rgba(50, 50, 70, 0.85) 0%, rgba(40, 40, 60, 0.9) 100%);
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: slideInRight 0.3s ease-out;
+  padding: 8px 12px; /* Consistent padding for better text spacing */
+   
+ 
+  border: 2px solid #ffe51f;
+  word-wrap: break-word;
+  overflow-wrap: break-word; /* Ensures long text wraps properly */
+}
+.SendMsg:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  }
+
+.Timestamps{
+    display: flex;
+    /* border: 2px solid #a2ff1f; */
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+     font-size: 12px;
+      color: #9ca3af; 
+      opacity: 0.7;
+       align-self: flex-end;
+}
+/* For the scrollbar style */

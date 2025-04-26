@@ -1,18 +1,25 @@
 import React from 'react'
 import "./Container.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-
 import Name from './Name/Name'
-import MsgWindow from './MsgContainer/MsgWindow'
+
+import Input from '../footer/Input';
+import Send from '../footer/Send';
+import ReceiveMsg from './Message/ReceiveMsg';
+import SendMsg from './Message/SendMsg';
+
+
+
 function Container() {
   return (<>
   <div className='Container-b'>
     <div className='Name-1'><Name/> </div>
-  <div className='MsgWindow-b'><MsgWindow/> </div>
+  <div className='MsgWindow-b'> <ReceiveMsg/> <ReceiveMsg/><ReceiveMsg/> <SendMsg/> </div>
+  <div className='footer'>
+    <Input className="input-b"/> <Send className="send-b"/></div>
+  
   </div> 
 
-  <div> </div>
+  
   
     </>
     
