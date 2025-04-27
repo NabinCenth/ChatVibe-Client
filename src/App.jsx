@@ -58,11 +58,23 @@ const[isown,setIsOwn]=useState(true);
 
 
   return (
+<>
+  {isstarted ? (
+    <Card setIsStarted={setIsStarted} myhandle={handleClick} />
+  ) : (
     <>
-{isstarted?<Card setIsStarted={setIsStarted} myhandle={handleClick}/>:null}
-      <Title className="title"/>
-      <Container handlemsgfromsender={getmsgfromsender} printmsg={allmessages} handlesavemsg={addAllMessages}  handlemsgremote={receivemsg} currentu={isown}  whosemsg={setIsOwn}/>
+      <Title className="title" />
+      <Container 
+        handlemsgfromsender={getmsgfromsender} 
+        printmsg={allmessages} 
+        handlesavemsg={addAllMessages} 
+        handlemsgremote={receivemsg} 
+        currentu={isown} 
+        whosemsg={setIsOwn} 
+      />
     </>
+  )}
+</>
   )
   }
 

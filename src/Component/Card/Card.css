@@ -1,4 +1,35 @@
-.connect-btn {
+/* .ContainerC {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url('C:\Users\Nabin Pokharel\Documents\Coding Projects\Messenger-React\Client\src\Assets\CyberPunk.png') ;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
+  width: 100vw;
+  height: 100vh;
+  border: 2px solid #1f66ff;
+  z-index: 4;
+  overflow: hidden;
+}
+.Card{
+  border: 2px solid #1f66ff;
+  position:fixed;
+  top: 25%;
+  left: 36.5%;
+  border-radius: 6%;
+  height: 60vh;
+  width: 30vw;
+  From https://css.glass
+  background: rgba(86, 219, 51, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(86, 219, 51, 0.3);
+} */
+  .connect-btn {
     background: linear-gradient(45deg, #ff6b6b, #ff8e53);
     color: white;
     font-size: 1.5rem;
@@ -16,7 +47,14 @@
     width: 20vw;
     z-index: 4;
   }
-  
+  @media screen and (max-width: 768px) {
+    .connect-btn {
+      width: 50vw;
+      left: 15vw;
+      top: 40vh;
+    }
+    
+  }
   .connect-btn:hover {
     
     transform: scale(1.05);
@@ -24,5 +62,4 @@
   }
   
   .connect-btn:active {
-    transform: scale(0.95);
-  }
+    transform: scale(0.95);}
