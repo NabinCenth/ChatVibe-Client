@@ -1,10 +1,10 @@
 import React from 'react'
 
-function ReceiveMsg() {
+function ReceiveMsg(props) {
   return (
     <> <div className="containerR"> 
     <div className="Namer">Ram</div>
-    <div className='ReceiveMsg'>ReceiveMsggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</div>
+    <div className='ReceiveMsg'>{props.msg}</div>
       <div className="Timestampr">9:30pm</div>
       </div>
     
