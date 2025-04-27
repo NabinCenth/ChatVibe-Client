@@ -5,9 +5,12 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 const Footer=(props)=>{
+  
   const [message,setMessage]=useState("");
   const handleChange=(e)=>{
-   
+   if(e.target.value==""){
+    return ;
+   }
     return( setMessage(e.target.value)) ;
    
   };

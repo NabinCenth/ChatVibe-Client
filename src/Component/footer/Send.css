@@ -12,6 +12,13 @@ color: #ffffff;
   cursor: pointer;
 
 }
+@media screen and (max-width: 768px) {
+    .send-b{
+        width: fit-content;
+        height: 75%;
+    }
+  
+}
 
 
 .send-icon{

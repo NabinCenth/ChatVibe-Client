@@ -8,6 +8,15 @@
     overflow: visible;
 }
 
+@media screen and (max-width: 768px) {
+  .Container-b{
+    width: 100vw;
+    height: 92vh;
+    margin:0px 0 0 0;
+  }
+    
+  }
+
 .Name-1{ 
     /* border: 2px solid #1f66ff; */
     width: 70vw;
@@ -57,9 +66,46 @@ width: 75%;
    flex-grow: auto;
   height:75% ;
   scroll-behavior: smooth;
-  /* border: 2px solid #ff1f1f; */
+
    overflow-y: auto;
    overflow-x: hidden;
+}
+@media screen and (max-width: 768px) {
+  .Name-1{height: 7%;}
+  .MsgWindow-b{
+    width: 100vw;
+    height: 88%;
+    }  
+    .ReceiveMsg{
+      min-width: 12vw  !important;
+      padding-left: 14PX !important;
+      padding-right: 9px !important;
+    }
+    .SendMsg{
+      min-width: 12vw !important;
+      padding-left: 14PX !important;
+      padding-right: 5px !important;
+    }
+    .footer{
+    
+      justify-content: center;
+      height: 7%;
+      align-items: flex-start;
+
+    }
+    .send{
+      width: 27%;
+      height: 93%;
+ 
+      }
+    .send-b{
+      width: 20%;
+      height: 75%;
+    }
+  .input-b{
+    width: 70%;
+    height: 88%;
+  }
 }
 .containerR{
     display: flex;
@@ -88,14 +134,16 @@ width: 75%;
  word-break: break-word;
  overflow: visible;
 margin-bottom: 1%;
+margin-top: 1%;
    
-}
+} 
 
 .ReceiveMsg{ 
     display: flex;
     /* border: 2px solid #1f66ff; */
     max-width:30vw ;
     min-height: 30%;
+    min-width: 3vw;
     height: fit-content;
   margin-left: 9px;
     font-family: 'Inter', Arial, sans-serif;
@@ -151,7 +199,8 @@ margin-bottom: 1%;
   align-items: center; /* Vertically centers the text */
   justify-content: flex-start; /* Aligns text to the left (adjust as needed) */
    max-width: 30vw;
-   margin-right: 6px;
+   min-width: 4vw;
+   margin-right: 9px;
   width: fit-content;
   height: fit-content;
   min-height: 30%; /* Adjusted for better control */

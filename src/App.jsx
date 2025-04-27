@@ -19,21 +19,39 @@ function App() {
   const Addreceivemsg=(message)=>{
     setReceiveMsg((prev)=>([...prev,{text:message,isOwn:false}])); 
   }
+  // ADD All messages in array
+  const [allmessages,setAllMessages]=useState([]);
+  const addAllMessages=(message,isOwn,time)=>{
+    if(message==""){
+      return ;
+    }
+    setAllMessages((prev)=>([...prev,{text:message,isOwn:isOwn,time:time}])); 
+  }
   useEffect(()=>{
     console.log("hello from use effec3333");
     socket?.on("connect",()=>{
-      socket?.on("message",(message)=>{
-        console.log("message from server",message);
-        Addreceivemsg(message);
+      socket?.on("message",(Remotemessageobj)=>{
+        console.log("message from server",Remotemessageobj);
+        Addreceivemsg(Remotemessageobj.text);
+        addAllMessages(Remotemessageobj.text,false,Remotemessageobj.time);
         
       })
     console.log("connected to server",message);
   })},[handleClick]);
-
-const getmsgfromsender=(message)=>{
-  console.log("message from sender",message);
-  setMessage(message);
-  socket.emit("message",message);
+  //get time
+  function getCurrentTime() {
+    const now = new Date();
+    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  
+const getmsgfromsender=(messages)=>{
+  console.log("message from sender",messages);
+  const Remotemessageobj={
+    text:messages,
+    time:getCurrentTime()
+  }
+  setMessage(Remotemessageobj);
+  socket.emit("message",Remotemessageobj);
 }
 const [isstarted,setIsStarted]=useState(true);
 const[isown,setIsOwn]=useState(true);
@@ -43,7 +61,7 @@ const[isown,setIsOwn]=useState(true);
     <>
 {isstarted?<Card setIsStarted={setIsStarted} myhandle={handleClick}/>:null}
       <Title className="title"/>
-      <Container handlemsgfromsender={getmsgfromsender} handlemsgremote={receivemsg} currentu={isown}  whosemsg={setIsOwn}/>
+      <Container handlemsgfromsender={getmsgfromsender} printmsg={allmessages} handlesavemsg={addAllMessages}  handlemsgremote={receivemsg} currentu={isown}  whosemsg={setIsOwn}/>
     </>
   )
   }
