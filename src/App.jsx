@@ -9,18 +9,10 @@ function App() {
   const[socket,setSocket]=useState(null);
   const [message,setMessage]=useState("");
   const handleClick=()=>{
-    const handleClick = () => {
-      setIsStarted(false);
-    
-      const URL = process.env.NODE_ENV === "production"
-        ? "https://chatvibe-v4sg.onrender.com"
-        : "http://192.168.1.65:3000";
-    
-      setSocket(io(URL, {
-        transports: ["websocket"]
-      }));
-    };
-    
+    setIsStarted(false);
+   setSocket(io("https://chatvibe-v4sg.onrender.com/",{
+      transports:["websocket"]
+     }) ) 
   }
   //REcived message in array
   const [receivemsg,setReceiveMsg]=useState([]);
