@@ -6,14 +6,34 @@ import Title from './Component/Head/Title';
 import Container from './Component/Board/Container';
 import Card from './Component/Card/Card';
 function App() {
+  const[Name,setName]=useState("");
   const[socket,setSocket]=useState(null);
   const [message,setMessage]=useState("");
-  const handleClick=()=>{
+  const [emptymsg,setEmptyMsg]=useState(true);
+  const handleClick=(name)=>{
+    if(name.trim()==""){
+      alert("Please enter your name");
+      return;
+    }
+    
     setIsStarted(false);
-   setSocket(io("https://chatvibe-v4sg.onrender.com/",{
-      transports:["websocket"]
-     }) ) 
+    const tempSocket = io("https://chatvibe-v4sg.onrender.com/", {
+      transports: ["websocket"]
+    });
+    tempSocket.on("connect", () => {
+
+        console.log("name in socket", name);
+        tempSocket.emit("name", name);
+        socket?.on("name",(name)=>{
+      console.log("name from server",name);
+        });
+      }
+    );
+  setName(name);
+    setSocket(tempSocket);
   }
+  
+
   //REcived message in array
   const [receivemsg,setReceiveMsg]=useState([]);
   const Addreceivemsg=(message)=>{
@@ -21,23 +41,26 @@ function App() {
   }
   // ADD All messages in array
   const [allmessages,setAllMessages]=useState([]);
-  const addAllMessages=(message,isOwn,time)=>{
+  const addAllMessages=(message,isOwn,time,name)=>{
     if(message==""){
       return ;
     }
-    setAllMessages((prev)=>([...prev,{text:message,isOwn:isOwn,time:time}])); 
+    setAllMessages((prev)=>([...prev,{text:message,isOwn:isOwn,time:time,name:name}])); 
   }
   useEffect(()=>{
     console.log("hello from use effec3333");
     socket?.on("connect",()=>{
+      socket?.on("name",(name)=>{
+        console.log("name from server",name);
+          });
       socket?.on("message",(Remotemessageobj)=>{
         console.log("message from server",Remotemessageobj);
         Addreceivemsg(Remotemessageobj.text);
-        addAllMessages(Remotemessageobj.text,false,Remotemessageobj.time);
+        addAllMessages(Remotemessageobj.text,false,Remotemessageobj.time,Remotemessageobj.name);
         
       })
     console.log("connected to server",message);
-  })},[handleClick]);
+  })},[socket]);
   //get time
   function getCurrentTime() {
     const now = new Date();
@@ -46,11 +69,14 @@ function App() {
   
 const getmsgfromsender=(messages)=>{
   console.log("message from sender",messages);
+  setEmptyMsg(false);
   const Remotemessageobj={
+    name:Name,
     text:messages,
     time:getCurrentTime()
   }
   setMessage(Remotemessageobj);
+  console.log("name from sender",Remotemessageobj);
   socket.emit("message",Remotemessageobj);
 }
 const [isstarted,setIsStarted]=useState(true);
@@ -60,7 +86,7 @@ const[isown,setIsOwn]=useState(true);
   return (
 <>
   {isstarted ? (
-    <Card setIsStarted={setIsStarted} myhandle={handleClick} />
+    <Card setIsStarted={setIsStarted} myhandle={handleClick}  />
   ) : (
     <>
       <Title className="title" />
@@ -71,6 +97,8 @@ const[isown,setIsOwn]=useState(true);
         handlemsgremote={receivemsg} 
         currentu={isown} 
         whosemsg={setIsOwn} 
+        handlemyname={Name}
+        isemptymsg={emptymsg}
       />
     </>
   )}

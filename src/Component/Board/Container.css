@@ -10,8 +10,10 @@
 
 @media screen and (max-width: 768px) {
   .Container-b{
-    width: 100vw;
-    height: 92vh;
+    position: fixed;
+       /* border: 2px solid #ff0000; */
+    width: 99vw;
+    height: 89vh;
     margin:0px 0 0 0;
   }
     
@@ -69,12 +71,50 @@ width: 75%;
 
    overflow-y: auto;
    overflow-x: hidden;
+}.empty-chat-message {
+  text-align: center;
+  font-size: 1.125rem; /* Slightly smaller for a refined look */
+  color: #b0b8c4; /* Cooler, muted gray for a professional tone */
+  margin-top: 50%; /* Reduced for tighter spacing */
+  font-family: 'Orbitron', sans-serif; /* Modern, professional font (already used in your app) */
+  font-weight: 500; /* Regular weight for subtlety */
+  letter-spacing: 0.75px; /* Slightly increased for a polished look */
+  line-height: 1.5; /* Adjusted for better readability */
+  padding: 0 24px; /* Slightly more padding for balance */
+  max-width: 500px; /* Slightly narrower for a focused appearance */
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9; /* Subtle fade for a softer presence */
+  transition: opacity 0.3s ease; /* Smooth fade on hover or state change */
+}
+
+.empty-chat-message:hover {
+  opacity: 1; /* Full opacity on hover for interactivity */
+}
+
+.user-name {
+  color: #3b82f6; /* Deeper, professional blue (tailwind's blue-500) */
+  font-weight: 500; /* Slightly lighter weight for elegance */
+  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.3); /* Softer, more refined shadow */
+  letter-spacing: 0.25px; /* Subtle spacing for clarity */
+  transition: color 0.2s ease, text-shadow 0.2s ease; /* Smooth transitions */
+}
+
+.user-name:hover {
+  color: #60a5fa; /* Lighter blue on hover (tailwind's blue-400) */
+  text-shadow: 0 1px 4px rgba(96, 165, 250, 0.4); /* Slightly stronger shadow on hover */
 }
 @media screen and (max-width: 768px) {
-  .Name-1{height: 7%;}
+  
+  .Name-1{
+    /* border: 2px solid #1f66ff; */
+    height: 7%;
+  }
   .MsgWindow-b{
-    width: 100vw;
-    height: 88%;
+    margin-left: 0;
+    /* border: 2px solid #1f66ff; */
+    width: 99vw;
+    height: 82%;
     }  
     .ReceiveMsg{
       min-width: 12vw  !important;
@@ -89,8 +129,9 @@ width: 75%;
     .footer{
     
       justify-content: center;
-      height: 7%;
+      height: 6.5vh;
       align-items: flex-start;
+      margin-bottom: 0;
 
     }
     .send{

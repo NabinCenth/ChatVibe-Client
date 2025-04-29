@@ -8,3 +8,12 @@
     font-weight:700;
     letter-spacing: 0.02em;
   }
+  @media screen and (max-width: 768px) {
+    .title-1{
+         /* border: 2px solid #ffffff; */
+        font-size: 2rem;
+        width: 99vw;
+        margin-top: 0px!important;
+    }
+    
+  }

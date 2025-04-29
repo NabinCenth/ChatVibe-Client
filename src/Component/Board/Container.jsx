@@ -31,12 +31,12 @@ const getsendMsg=(msg)=>{
   console.log("sendmsg",sendMsg1);
    
 }
- const mounter=(whosemsg,msg,time)=>{
+ const mounter=(whosemsg,msg,time,name)=>{
 console.log("whosemsg",whosemsg);
 console.log("what msg",msg);
 console.log("time",getCurrentTime());
 
-return whosemsg? ( <SendMsg msg={msg} handletime={getCurrentTime()}/>):(<ReceiveMsg msg={msg} handletime={time}/>)
+return whosemsg? ( <SendMsg msg={msg} handletime={getCurrentTime()}/>):(<ReceiveMsg msg={msg} handletime={time} handlenamerev={name}/>)
 }
 
 const [messages,setMessages]=useState([]);
@@ -54,11 +54,13 @@ const addMessage = (message) => {
     <div className='Name-1'><Name/> </div>
   <div className='MsgWindow-b' ref={messagesRef}>   
   {/* Mounting the message from receiver */}
-<SendMsg msg="HI"/>
-<ReceiveMsg msg="Hello"/>
+ {props.isemptymsg?(<p className="empty-chat-message">
+  This space is waiting for your words,<span className="user-name">{props.handlemyname} </span>.
+</p>
+):null }
   {props.printmsg.map((msg, index) => (
     console.log("msg",msg),
-              <Fragment key={index}>{mounter(msg.isOwn, msg.text,msg.time)}</Fragment>
+              <Fragment key={index}>{mounter(msg.isOwn, msg.text,msg.time,msg.name)}</Fragment>
             ))}
   
    
