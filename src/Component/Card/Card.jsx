@@ -6,7 +6,7 @@ function Card(props) {
  const [roomname,setRoomName]=React.useState("");
  const handlesend=()=>{
   console.log("name from card",name);
-  props.myhandle(name);
+  props.myhandle(name,roomname);
   if (name.trim() === "") {
     return;
   }

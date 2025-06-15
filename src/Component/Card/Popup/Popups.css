@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Rubik+Dirt&display=swap');
+
+@keyframes container-show {
+  0% {
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes container-hide {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -25px);
+    opacity: 0;
+  }
+}
+
+.container-show {
+  position: absolute;
+  top: 2vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  width: fit-content;
+  min-width: 35vw;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: "Inter", system-ui;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 10;
+  animation: container-show 0.4s ease-out forwards;
+}
+
+.container-hide {
+  position: absolute;
+  top: 2vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  width: fit-content;
+  min-width: 35vw;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: "Inter", system-ui;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 10;
+  animation: container-hide 0.4s ease-out forwards;
+}
