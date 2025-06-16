@@ -20,9 +20,9 @@ function App() {
   const [emptymsg, setEmptyMsg] = useState(true);
   const roomname = (roomname) => {
     if (roomname.trim() == "") {
-      alert(
-        "You Havent Entered Room Name So you will be added to general room"
-      );
+      setRoom("General");
+    alert("You haven't entered a room name. You'll be added to the general room by default.");
+
       return;
     }
     setRoom(roomname);
