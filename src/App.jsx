@@ -9,7 +9,7 @@ import Popups from "./Component/Card/Popup/Popups";
 function App() {
   const [users, setUsers] = useState("");
   const [nameexit, setNameExit] = useState(false);
-  const[namepopup,setNamePopup]=useState(true);
+  const[namepopup,setNamePopup]=useState(false);
   const [showPopup ,setShowPopup]=useState(true);
   const [exitPhase, setExitPhase] = useState(false);
   const [ServerRoomName, setServerRoomName] = useState("");
@@ -69,7 +69,22 @@ function App() {
     ]);
   };
   //use effect for the name 
-  useEffect
+  useEffect(()=>{
+     // Set exit phase after 3s
+  if(namepopup){      setTimeout(() => {
+      setNameExit(true);
+   
+    }, 3000);
+
+    // Fully remove popup after 4s
+    setTimeout(() => {
+      console.log("name exit phase", nameexit);
+      setNamePopup(false);
+            setUsers("");
+            console.log("name popup", namepopup);
+    }, 4000);   
+    }
+  }, [namepopup,socket]);
   //use effect for socket connection
 
   useEffect(() => {
@@ -87,20 +102,14 @@ function App() {
    //listing for the new joined users
      socket?.on("users-name", (name) => {
      setUsers(name);           // Set name immediately
-
-    // Set exit phase after 3s
-    setTimeout(() => {
-      setNameExit(true);
-    }, 3000);
-
-    // Fully remove popup after 4s
-    setTimeout(() => {
-      setNamePopup(false);
-            setUsers("");
-    }, 4000);
-    console.log("New user joined:", name);}
+setNamePopup(true); // Show popup immediately
+  
+    }
+  
    
-  );
+  ); 
+
+  
    //connecting to socket
     console.log("hello from use effec3333");
     socket?.on("connect", () => {
@@ -168,7 +177,7 @@ else {
           {namepopup ?
           <Popups 
           className={nameexit ? "container-hide " : " container-show"} 
-          mesaage={`👋 ${users} just joined the room!`}
+          message={`👋 ${users} just joined the room!`}
           />
           : null}
           <Title className="title" />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Rubik+Dirt&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Rubik+Dirt&display=swap');
 
 @keyframes container-show {
   0% {
@@ -21,7 +21,17 @@
     opacity: 0;
   }
 }
-
+@media screen and (max-width: 600px) {
+  .container-show, .container-hide {
+    top:1.5vh!important;
+    width: 90vw !important;
+    padding-top:2%;
+    padding-left:4%;
+    min-width: unset;
+    font-size: 0.9rem;
+  }
+  
+}
 .container-show {
   position: absolute;
   top: 2vh;
