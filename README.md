@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>ChatVibe - Frontend README</title>
-  <style>
-    body{font-family: Arial; background:#0e0e0e; color:white; padding:30px;}
-    .box{max-width:900px; margin:auto; background:#161616; padding:25px; border-radius:12px;}
-    h1{color:#00d2ff;}
-    h2{color:#00ffa6;}
-    code{background:#222;padding:6px;border-radius:6px;}
-    .tag{color:#ffaa00;}
-    a{color:#00d2ff;}
-  </style>
-</head>
 
 <body>
 <div class="box">
@@ -71,4 +57,4 @@ Building things one bug at a time 😎</p>
 
 </div>
 </body>
-</html>
+
